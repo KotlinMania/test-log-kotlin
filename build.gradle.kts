@@ -168,7 +168,7 @@ mavenPublishing {
 
     pom {
         name.set("test-log-kotlin")
-        description.set("Kotlin Multiplatform port of d-e-s-o/test-lo - A replacement of the #[test] attribute that initializes logging and/or tracing infrastructure before running tests")
+        description.set("Kotlin Multiplatform port of d-e-s-o/test-log - a replacement test annotation that initializes logging and tracing infrastructure before running tests")
         inceptionYear.set("2026")
         url.set("https://github.com/KotlinMania/test-log-kotlin")
 
@@ -176,6 +176,11 @@ mavenPublishing {
             license {
                 name.set("Apache-2.0")
                 url.set("https://opensource.org/licenses/Apache-2.0")
+                distribution.set("repo")
+            }
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
                 distribution.set("repo")
             }
         }
