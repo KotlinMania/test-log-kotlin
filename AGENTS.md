@@ -200,9 +200,10 @@ name:
    **not** quote upstream re-export statements verbatim in Kotlin comments;
    that puts Rust syntax (the `pub`/`use` keywords, the `::` path separator,
    `crate::`, snake_case identifiers) into Kotlin source, which trips both the
-   "Rust syntax leaking into Kotlin code or comments" Forbidden rule above and
-   the cheat detector. Provenance against the upstream source is established by
-   the `// port-lint: source <path>` header, not by quoting Rust syntax.
+   "Rust syntax leaking into Kotlin code or comments" Forbidden rule in this
+   document and the cheat detector. Provenance against the upstream source is
+   established by the `// port-lint: source <path>` header, not by quoting
+   Rust syntax.
 6. Each time a caller is migrated off the re-export, append that caller's
    absolute path under a `// Callers migrated:` ledger. Append; do not delete
    migration history.
