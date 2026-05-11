@@ -194,8 +194,16 @@ name:
    re-export package.
 5. Keep `Mod.kt` or the equivalent package file as a tracking ledger when the
    upstream file carries module docs or re-export history. It should contain the
-   translated upstream module-level comments and literal quoted `pub use` lines,
-   for example `// pub use crate::lib::result::Result;`.
+   translated upstream module-level comments and a Kotlin-shaped prose
+   description of each upstream re-export — which symbol is re-exported, where
+   the symbol originally lives, and where the Kotlin counterpart lives. Do
+   **not** quote upstream re-export statements verbatim in Kotlin comments;
+   that puts Rust syntax (the `pub`/`use` keywords, the `::` path separator,
+   `crate::`, snake_case identifiers) into Kotlin source, which trips both the
+   "Rust syntax leaking into Kotlin code or comments" Forbidden rule in this
+   document and the cheat detector. Provenance against the upstream source is
+   established by the `// port-lint: source <path>` header, not by quoting
+   Rust syntax.
 6. Each time a caller is migrated off the re-export, append that caller's
    absolute path under a `// Callers migrated:` ledger. Append; do not delete
    migration history.

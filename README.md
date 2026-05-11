@@ -1,12 +1,12 @@
-# test-log-kotlin in Kotlin
+# test-log-kotlin
 
 [![GitHub link](https://img.shields.io/badge/GitHub-KotlinMania%2Ftest--log--kotlin-blue.svg)](https://github.com/KotlinMania/test-log-kotlin)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.kotlinmania/test-log-kotlin)](https://central.sonatype.com/artifact/io.github.kotlinmania/test-log-kotlin)
 [![Build status](https://img.shields.io/github/actions/workflow/status/KotlinMania/test-log-kotlin/ci.yml?branch=main)](https://github.com/KotlinMania/test-log-kotlin/actions)
 
-This is a Kotlin Multiplatform line-by-line transliteration port of [`d-e-s-o/test-lo`](https://github.com/d-e-s-o/test-log.git).
+This is a Kotlin Multiplatform line-by-line transliteration port of [`d-e-s-o/test-log`](https://github.com/d-e-s-o/test-log.git).
 
-**Original Project:** This port is based on [`d-e-s-o/test-lo`](https://github.com/d-e-s-o/test-log.git). All design credit and project intent belong to the upstream authors; this repository is a faithful port to Kotlin Multiplatform with no behavioural changes intended.
+**Original Project:** This port is based on [`d-e-s-o/test-log`](https://github.com/d-e-s-o/test-log.git). All design credit and project intent belong to the upstream authors; this repository is a faithful port to Kotlin Multiplatform with no behavioural changes intended.
 
 ### Porting status
 
@@ -47,11 +47,11 @@ See [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) for translator discipline,
 
 ### License
 
-This Kotlin port is distributed under the same Apache-2.0 license as the upstream [`d-e-s-o/test-lo`](https://github.com/d-e-s-o/test-log.git). See [LICENSE](LICENSE) (and any sibling `LICENSE-*` / `NOTICE` files mirrored from upstream) for the full text.
+This Kotlin port is dual-licensed under **Apache-2.0 OR MIT**, matching the upstream [`d-e-s-o/test-log`](https://github.com/d-e-s-o/test-log.git). See [LICENSE-APACHE](LICENSE-APACHE) and [LICENSE-MIT](LICENSE-MIT) for the full text of each license; you may choose either.
 
-Original work copyrighted by the test-lo authors.  
+Original work copyrighted by Daniel Mueller and the upstream test-log contributors.  
 Kotlin port: Copyright (c) 2026 Sydney Renee and The Solace Project.
 
 ### Acknowledgments
 
-Thanks to the [`d-e-s-o/test-lo`](https://github.com/d-e-s-o/test-log.git) maintainers and contributors for the original Rust implementation. This port reproduces their work in Kotlin Multiplatform; bug reports about upstream design or behavior should go to the upstream repository.
+Thanks to the [`d-e-s-o/test-log`](https://github.com/d-e-s-o/test-log.git) maintainers and contributors for the original Rust implementation. This port reproduces their work in Kotlin Multiplatform; bug reports about upstream design or behavior should go to the upstream repository.

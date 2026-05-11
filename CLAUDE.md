@@ -162,9 +162,14 @@ Workflow:
    `import <upstream-fully-qualified-name> as <Name>`. Never bridge with a Kotlin `typealias`.
 
 4. **Keep `Mod.kt` (or the equivalent file for that package) as a tracking file.** It carries
-   the translated upstream module-level comments and a literal-quoted reference to each upstream
-   `pub use` line (e.g. `// pub use crate::lib::result::Result;`). Each time a caller is migrated
-   off the re-export, append the caller's absolute path under a `// Callers migrated:` ledger in
+   the translated upstream module-level comments and a Kotlin-shaped prose description of each
+   upstream re-export — name the re-exported symbol, where it originally lives, and where the
+   Kotlin counterpart lives (sibling `*-kotlin` package, or Kotlin stdlib). Do **not** quote
+   upstream re-export statements verbatim — that puts Rust syntax (`pub`, `use`, `::`, `crate::`,
+   snake_case identifiers) into Kotlin source, which the `Forbidden` cheat-detector rule above
+   catches. Provenance against the upstream source is established by the `// port-lint: source
+   <path>` header, not by quoting Rust syntax in comments. Each time a caller is migrated off the
+   re-export, append the caller's absolute path under a `// Callers migrated:` ledger in
    `Mod.kt`. Append, never delete. Once all callers are migrated, the `typealias` (if any) is
    removed; the tracking file remains as the ledger of the migration.
 
