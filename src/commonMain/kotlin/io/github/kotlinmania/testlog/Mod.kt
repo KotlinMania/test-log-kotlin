@@ -4,53 +4,26 @@ package io.github.kotlinmania.testlog
 // Copyright (C) 2019-2025 Daniel Mueller <deso@posteo.net>
 // SPDX-License-Identifier: (Apache-2.0 OR MIT)
 
-// A package providing a replacement test annotation that initializes logging
-// and tracing infrastructure before running tests.
+// A package providing a replacement test wrapper that initializes logging
+// or tracing infrastructure before running tests.
 //
-// The upstream crate exposes a procedural macro that decorates a test
-// function and wraps its body with a logging initializer. Kotlin has no
-// procedural-macro mechanism, so this package does not introduce a new
-// test-annotation API. Callers wire logging into their before-test setup
-// directly, or wrap each test body with the appropriate initializer.
-//
-// Recommended Kotlin shape, sketched for orientation only and not provided
-// as a redirection target inside this package:
-//
-//     class WorksTest {
-//         @BeforeTest fun setup() { /* initialize logging/tracing here */ }
-//
-//         @Test
-//         fun itWorks() {
-//             info { "Checking whether it still works..." }
-//             assertEquals(4, 2 + 2)
-//             info { "Looks good!" }
-//         }
-//     }
-//
-// The upstream crate also supported stacking its test annotation on top of
-// other test annotations such as the one from the tokio crate for async test
-// bodies. The Kotlin equivalent is the runTest builder from
-// kotlinx-coroutines-test; a logging initializer is just a regular call
-// inside the suspending block.
+// The upstream crate exposes a crate-root item named test that decorates a
+// test function and wraps its body with a logging initializer. Kotlin has
+// no procedural-attribute mechanism, so the callable Kotlin translation is
+// the explicit wrapper in Test.kt. Callers keep the regular Kotlin test
+// annotation on the function and call test with their logging initializer
+// around the body.
 
-// Tracking file for upstream src/lib.rs. The upstream crate root is composed
-// entirely of re-exports; per the workspace rule on re-exports (CLAUDE.md
-// "Re-exports from upstream mod.rs files"), no Kotlin typealias is
-// introduced. Callers reach the upstream symbol directly via explicit
-// import-as aliasing when a name match is desired.
+// Tracking file for the remaining upstream crate-root re-exports. Per the
+// workspace rule on re-exports, no Kotlin typealias is introduced. Callers
+// reach the real sibling package directly when that package exists.
 
-// Re-exports recorded by the upstream crate root (described in prose; the
-// literal Rust syntax is intentionally lifted out per the cheat-detector
-// rule against Rust syntax in Kotlin comments):
+// Re-exports recorded by the upstream crate root:
 //
-//   - The test annotation symbol from the test-log-macros companion crate
-//     is re-exported unconditionally under the same name. It is a procedural
-//     macro and has no Kotlin analog or peer port today (the test-log-macros
-//     crate has no *-kotlin sibling). Callers initialize logging from their
-//     before-test setup or a wrapper function instead of relying on
-//     attribute rewriting. When a Kotlin port of test-log-macros is created
-//     it will live at io.github.kotlinmania.testlogmacros; callers import
-//     from there directly rather than through a re-export here.
+//   - The test symbol from the test-log-macros companion crate is exported
+//     unconditionally under the same name. The companion crate is only the
+//     procedural-attribute implementation; Kotlin callers use the wrapper
+//     in Test.kt for the same initialize-then-run behavior.
 //
 //   - The tracing-subscriber crate is re-exported as an opaque module when
 //     the upstream trace feature flag is enabled. The Kotlin counterpart
@@ -71,10 +44,9 @@ package io.github.kotlinmania.testlog
 
 // Projected callers:
 //   workspace_dep_graph.json shows zero kotlinmania repos importing the
-//   upstream test annotation, the upstream tracing-subscriber re-export, or
-//   the upstream env-logger re-export. Future Kotlin ports of any downstream
-//   consumer should target the upstream symbol directly:
-//     - the not-yet-existing io.github.kotlinmania.testlogmacros for the
-//       test annotation symbol,
+//   upstream test helper, the upstream tracing-subscriber re-export, or the
+//   upstream env-logger re-export. Future Kotlin ports of any downstream
+//   consumer should target the real Kotlin location directly:
+//     - io.github.kotlinmania.testlog.test for the test wrapper,
 //     - io.github.kotlinmania.tracingsubscriber for tracing-subscriber,
 //     - io.github.kotlinmania.envlogger for env-logger.
