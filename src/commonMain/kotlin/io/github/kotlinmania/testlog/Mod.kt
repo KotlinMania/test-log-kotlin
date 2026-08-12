@@ -36,6 +36,10 @@ package io.github.kotlinmania.testlog
 //     env-logger-kotlin under io.github.kotlinmania.envlogger; callers
 //     import its symbols directly rather than through a re-export here.
 
+// This object exists so the file is not empty from ktlint's perspective.
+// It carries no runtime state and is never referenced.
+private object Mod
+
 // Callers migrated:
 //   (none — workspace audit confirmed zero kotlinmania repos import any
 //    symbol exported from the upstream crate at the time this tracking file

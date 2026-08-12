@@ -10,12 +10,13 @@ internal class TestTest {
     fun runsInitializerBeforeBody() {
         val events = mutableListOf<String>()
 
-        val result = test(
-            initialize = { events.add("initialize") },
-        ) {
-            events.add("body")
-            4
-        }
+        val result =
+            test(
+                initialize = { events.add("initialize") },
+            ) {
+                events.add("body")
+                4
+            }
 
         assertEquals(listOf("initialize", "body"), events)
         assertEquals(4, result)
