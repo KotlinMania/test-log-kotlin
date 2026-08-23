@@ -36,9 +36,12 @@ package io.github.kotlinmania.testlog
 //     env-logger-kotlin under io.github.kotlinmania.envlogger; callers
 //     import its symbols directly rather than through a re-export here.
 
-// This object exists so the file is not empty from ktlint's perspective.
-// It carries no runtime state and is never referenced.
-private object Mod
+/**
+ * Module metadata for test-log crate port.
+ */
+public object TestLog {
+    public const val CRATE_NAME: String = "test-log"
+}
 
 // Callers migrated:
 //   (none — workspace audit confirmed zero kotlinmania repos import any
