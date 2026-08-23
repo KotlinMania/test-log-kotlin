@@ -1,4 +1,4 @@
-// port-lint: source src/lib.rs
+// port-lint: source lib.rs
 package io.github.kotlinmania.testlog
 
 // Copyright (C) 2019-2025 Daniel Mueller <deso@posteo.net>
@@ -50,7 +50,7 @@ public object TestLog {
 //    sites against test-log.)
 
 // Projected callers:
-//   workspace_dep_graph.json shows zero kotlinmania repos importing the
+//   workspace dependency graph shows zero kotlinmania repos importing the
 //   upstream test helper, the upstream tracing-subscriber re-export, or the
 //   upstream env-logger re-export. Future Kotlin ports of any downstream
 //   consumer should target the real Kotlin location directly:
