@@ -8,8 +8,8 @@ Based on AST analysis, here are the concrete next steps.
 - **Function parity:** 0/0 matched (target 6) — N/A
 - **Class/type parity:** 0/0 matched (target 3) — N/A
 - **Combined symbol parity:** 0/0 matched (target 9) — N/A
-- **Average inline-code cosine:** 0.00 (function body across 0 matched files)
-- **Average documentation cosine:** 0.00 (doc text across 0 matched files)
+- **Average inline-code cosine:** 0.00 (function body across 1 matched files)
+- **Average documentation cosine:** 0.46 (doc text across 1 matched files)
 - **Cheat-zeroed Files:** 1
 - **Critical Issues:** 1 files with <0.60 function similarity
 
@@ -27,9 +27,9 @@ No missing high-value files detected.
 
 Every matched file is listed below with function and type symbol parity.
 
-### 1. test-log.lib
+### 1. lib
 
-- **Target:** `testlog.Mod [STUB]`
+- **Target:** `testlog.Mod [ZERO]`
 - **Similarity:** 0.00
 - **Dependents:** 0
 - **Priority Score:** 10.0
