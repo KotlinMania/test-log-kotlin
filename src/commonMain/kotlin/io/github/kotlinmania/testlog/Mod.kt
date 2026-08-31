@@ -1,4 +1,4 @@
-// port-lint: source test-log/src/lib.rs
+// port-lint: source lib.rs
 package io.github.kotlinmania.testlog
 
 // Copyright (C) 2019-2025 Daniel Mueller <deso@posteo.net>
@@ -37,7 +37,26 @@ package io.github.kotlinmania.testlog
 //     import its symbols directly rather than through a re-export here.
 
 /**
- * Module metadata for test-log crate port.
+ * Module metadata and constants for the `test-log` crate port.
+ *
+ * A package providing a replacement test wrapper that initializes logging
+ * or tracing infrastructure before running tests.
+ *
+ * In upstream Rust, `test-log` provides a procedural attribute macro
+ * `#[test_log::test]` that wraps test functions so that logging and/or tracing
+ * infrastructure is initialized before executing the test body.
+ *
+ * Example:
+ * ```kotlin
+ * @Test
+ * fun itWorks() = test(
+ *     initialize = { initializeLogging() },
+ * ) {
+ *     info("Checking whether it still works...")
+ *     assertEquals(4, 2 + 2)
+ *     info("Looks good!")
+ * }
+ * ```
  */
 public object TestLog {
     public const val CRATE_NAME: String = "test-log"
