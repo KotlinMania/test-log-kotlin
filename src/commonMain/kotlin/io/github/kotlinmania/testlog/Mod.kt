@@ -1,4 +1,4 @@
-// port-lint: source lib.rs
+// port-lint: source test-log/src/lib.rs
 package io.github.kotlinmania.testlog
 
 // Copyright (C) 2019-2025 Daniel Mueller <deso@posteo.net>
