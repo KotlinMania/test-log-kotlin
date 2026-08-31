@@ -42,8 +42,8 @@ package io.github.kotlinmania.testlog
  * A package providing a replacement test wrapper that initializes logging
  * or tracing infrastructure before running tests.
  *
- * In upstream Rust, `test-log` provides a procedural attribute macro
- * `#[test_log::test]` that wraps test functions so that logging and/or tracing
+ * In upstream Rust, test-log provides a procedural attribute macro
+ * that wraps test functions so that logging and/or tracing
  * infrastructure is initialized before executing the test body.
  *
  * Example:
