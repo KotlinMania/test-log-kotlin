@@ -47,5 +47,5 @@ do not treat them as the next implementation target by default.
 
 | Source | Target | Path |
 |--------|--------|------|
-| `lib` | `testlog.Mod` | `src/lib` |
+| `lib` | `testlog.Mod` | `lib` |
 
