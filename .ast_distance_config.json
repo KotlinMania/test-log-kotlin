@@ -15,5 +15,13 @@
     "todos": true,
     "lint": true
   },
-  "reexport_modules": ["lib"]
+  "reexport_modules": [
+    "lib",
+    "lib.rs",
+    "test-log/src/lib.rs",
+    "test-log.lib",
+    "test-log/lib",
+    "test_log.lib",
+    "test_log/lib"
+  ]
 }
