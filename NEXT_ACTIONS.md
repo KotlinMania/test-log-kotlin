@@ -4,14 +4,14 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 1/1 (100.0%)
+- **Files Present:** 0/1 (0.0%)
 - **Function parity:** 0/0 matched — N/A
 - **Class/type parity:** 0/0 matched — N/A
 - **Combined symbol parity:** 0/0 matched — N/A
-- **Average inline-code cosine:** 0.00 (function body across 1 matched files)
-- **Average documentation cosine:** 0.75 (doc text across 1 matched files)
+- **Average inline-code cosine:** 0.00 (function body across 0 matched files)
+- **Average documentation cosine:** 0.00 (doc text across 0 matched files)
 - **Cheat-zeroed Files:** 0
-- **Critical Issues:** 1 files with <0.60 function similarity
+- **Critical Issues:** 0 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
@@ -43,9 +43,9 @@ normal priority and missing-file ladders because they are wiring
 modules, not direct logic ports. Consult them for call-site routing;
 do not treat them as the next implementation target by default.
 
-### Matched
+### Missing
 
-| Source | Target | Path |
-|--------|--------|------|
-| `lib` | `testlog.Mod` | `lib` |
+| Source | Expected target | Deps | Source path | Expected path |
+|--------|-----------------|------|-------------|---------------|
+| `lib` | `Lib` | 0 | `lib.rs` | `Lib.kt` |
 

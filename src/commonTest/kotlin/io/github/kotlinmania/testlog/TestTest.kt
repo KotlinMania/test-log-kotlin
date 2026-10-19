@@ -1,11 +1,24 @@
-// port-lint: tests lib.rs
 package io.github.kotlinmania.testlog
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertTrue
 
 internal class TestTest {
+    @Test
+    fun testWrapperUnitReturn() {
+        var initialized = false
+        var executed = false
+        test(
+            initialize = { initialized = true },
+        ) {
+            executed = true
+        }
+        assertTrue(initialized)
+        assertTrue(executed)
+    }
+
     @Test
     fun runsInitializerBeforeBody() {
         val events = mutableListOf<String>()
